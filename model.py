@@ -71,17 +71,17 @@ class myNeuralNet:
 		for step in range(max_steps):
 			# read a batch of data from the training data
 			# now run the train_step, self.loss on this batch of training data. something like :
-			_, train_loss = sess.run([self.train_step, self.loss], feed_dict={'''here, feed in your placeholders with the data you read in the previous to previous comment'''})
+			_, train_loss = sess.run([self.train_step, self.loss], feed_dict={inpl: batch_xs, lbpl: batch_ys '''here, feed in your placeholders with the data you read in the previous to previous comment'''})
 			if (step % print_step) == 0:
 				# read the validation dataset and report loss, accuracy on it by running
-				val_acc, val_loss = sess.run([self.accuracy, self.loss], feed_dict={'''here, feed in your placeholders with the data you read in the comment above'''})
+				val_acc, val_loss = sess.run([self.accuracy, self.loss], feed_dict={inpl: batch_xs, lbpl: batch_ys'''here, feed in your placeholders with the data you read in the comment above'''})
 				# remember that the above will give you val_acc, val_loss as numpy values and not tensors
 				pass
 			# store these train_loss and validation_loss in lists/arrays, write code to plot them vs steps
 			# Above curves are *REALLY* important, they give deep insights on what's going on
 		# -- for loop ends --
 		# Now once training is done, run predictions on the test set
-		test_predictions = sess.run('''here, put something like self.predictions that you would have made somewhere''', feed_dict={'''here, feed in test dataset'''})
+		test_predictions = sess.run(self.accuracy'''here, put something like self.predictions that you would have made somewhere''', feed_dict={inpl: batch_xs, lbpl: batch_ys'''here, feed in test dataset'''})
 		return test_predictions
 		# This is because we will ask you to submit test_predictions, and some marks will be based on how your net performs on these unseen instances (test set)
 		'''
